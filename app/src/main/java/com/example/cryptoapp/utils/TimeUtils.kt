@@ -1,0 +1,16 @@
+package com.example.cryptoapp.utils
+
+import java.sql.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
+
+class TimeUtils() {
+    fun convertTimestampToTime(timestamp: Long?): String {
+        if (timestamp == null) return ""
+        val stamp = Timestamp(timestamp * 1000)
+        val date = Date(stamp.time)
+        val sdf = SimpleDateFormat("HH:ss:mm", Locale.getDefault())
+        sdf.timeZone = TimeZone.getDefault()
+        return sdf.format(date)
+    }
+}
